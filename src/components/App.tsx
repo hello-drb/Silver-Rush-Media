@@ -584,7 +584,7 @@ export default function App({ services, projects }: AppProps) {
           ) : (
             <form onSubmit={handleFormSubmit} className="text-left space-y-8 max-w-3xl mx-auto p-12 bg-white border border-ink/5 shadow-2xl" id="contact-form">
               {/* Web3Forms config */}
-              <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_KEY || ''} />
+              <input type="hidden" name="access_key" value="938afffd-b22c-4c83-85e0-55362d14787b" />
               <input type="hidden" name="subject" value="New SRM Inquiry" />
               <input type="hidden" name="from_name" value="Silver Rush Media Website" />
               {/* Honeypot */}
