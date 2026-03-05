@@ -118,14 +118,19 @@ export default function App({ services, projects }: AppProps) {
         scrolled ? "bg-white/80 backdrop-blur-md border-b border-ink/5 py-4" : "bg-transparent py-8"
       }`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <motion.div 
+          <motion.a 
+            href="#hero"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-display font-black tracking-tighter transition-colors text-ink"
             id="nav-logo"
           >
-            SILVER RUSH MEDIA
-          </motion.div>
+            <img 
+              src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772089691/sr_clear_fin0va.png" 
+              alt="Silver Rush Media" 
+              className={`transition-all duration-300 ${scrolled ? "h-8" : "h-12"}`}
+              referrerPolicy="no-referrer"
+            />
+          </motion.a>
           
           <div className="hidden md:flex gap-10 text-xs font-bold tracking-[0.2em] uppercase transition-colors text-ink">
             {[
@@ -360,45 +365,43 @@ export default function App({ services, projects }: AppProps) {
         </div>
       </section>
 
-      {/* Section 5: Testimonial Moment (Pam Hervey) */}
-      <section className="py-32 px-6 md:px-20 bg-paper" id="testimonial">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
-          <div className="w-full md:w-1/2">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-[4/5] overflow-hidden border-[12px] border-white/10 shadow-2xl">
-                <img 
-                  src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570220/pamela_hervey_wellness_umol8a.png" 
-                  alt="Pamela Hervey Wellness"
-                  className="object-cover w-full h-full"
-                  referrerPolicy="no-referrer"
-                />
+      {/* Section 5: Pam Hervey — Full Story + Testimonial */}
+      <section className="py-32 px-6 md:px-20 bg-paper" id="pam-hervey">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative p-12 md:p-16 bg-white border border-ink/5 shadow-2xl"
+          >
+            <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+              <div className="w-full md:w-2/5 shrink-0">
+                <div className="aspect-[4/5] overflow-hidden border-[12px] border-ink/5 shadow-lg">
+                  <img 
+                    src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570220/pamela_hervey_wellness_umol8a.png" 
+                    alt="Pamela Hervey Wellness"
+                    className="object-cover w-full h-full"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-sr-rust text-white p-6 font-black uppercase tracking-tighter rotate-3 shadow-xl">
-                Client Spotlight
+              <div className="w-full md:w-3/5">
+                <div className="text-xs font-bold uppercase tracking-[0.3em] text-sr-rust mb-4">Client Story</div>
+                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6">Pamela Hervey Wellness</h3>
+                <p className="text-ink/60 leading-relaxed font-serif text-lg mb-10">
+                  A wellness coach building her practice from the ground up — and she needed more than a photographer. We scaled up a creative team, bringing in a brand strategist and designer, and worked together to develop her visual identity, build the website, produce social content, an ebook, and a webinar, and launch her into the market with a cohesive brand across every touchpoint.
+                </p>
+                <div className="pt-8 border-t border-ink/10">
+                  <MessageSquare size={32} className="text-sr-rust/30 mb-4" />
+                  <blockquote className="text-xl md:text-2xl font-serif italic leading-snug text-ink mb-6">
+                    "Drew didn't just build a website for me — he helped shape the visual identity and voice of my brand from the ground up. What I appreciated most was his unique balance of support and creative challenge. He consistently encouraged me to stretch beyond my comfort zone and share my voice and expertise more boldly than I might have on my own. Through that process, he helped me discover new ways of communicating my message and connecting with the women I serve."
+                  </blockquote>
+                  <p className="text-lg font-black uppercase tracking-tighter text-sr-rust">— Pam Hervey</p>
+                  <p className="text-sr-slate font-bold uppercase tracking-widest text-xs mt-1">Founder & Health Coach, Pamela Hervey Wellness</p>
+                </div>
               </div>
-            </motion.div>
-          </div>
-          <div className="w-full md:w-1/2">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <MessageSquare size={64} className="text-sr-rust/20 mb-8" />
-              <blockquote className="text-3xl md:text-5xl font-serif italic leading-tight text-ink mb-12" id="testimonial-quote">
-                "Drew didn't just build a website for me — he helped shape the visual identity and voice of my brand from the ground up. What I appreciated most was his unique balance of support and creative challenge. He consistently encouraged me to stretch beyond my comfort zone and share my voice and expertise more boldly than I might have on my own. Through that process, he helped me discover new ways of communicating my message and connecting with the women I serve."
-              </blockquote>
-              <div id="testimonial-author">
-                <p className="text-2xl font-black uppercase tracking-tighter text-sr-rust">— Pam Hervey</p>
-                <p className="text-sr-slate font-bold uppercase tracking-widest text-sm">Founder & Health Coach, Pamela Hervey Wellness</p>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -559,12 +562,12 @@ export default function App({ services, projects }: AppProps) {
 
               <div className="space-y-3">
                 <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">Business / Organization</label>
-                <input type="text" name="business" required className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="Your Business" />
+                <input type="text" name="business" className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="Your Business" />
               </div>
               
               <div className="space-y-3">
                 <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">What best describes you?</label>
-                <select name="role" required className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif appearance-none">
+                <select name="role" className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif appearance-none">
                   <option value="" disabled selected>Select one</option>
                   <option value="Author or Writer">Author or Writer</option>
                   <option value="Coach or Consultant">Coach or Consultant</option>
@@ -577,18 +580,8 @@ export default function App({ services, projects }: AppProps) {
               </div>
 
               <div className="space-y-3">
-                <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">What are you working on right now?</label>
-                <textarea name="project" rows={3} required className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="Current project..." />
-              </div>
-
-              <div className="space-y-3">
-                <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">What's the biggest gap between where you are and where you want to be?</label>
-                <textarea name="gap" rows={3} required className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="The challenge..." />
-              </div>
-
-              <div className="space-y-3">
-                <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">How did you find us?</label>
-                <input type="text" name="source" className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="Referral, Social, etc." />
+                <label className="text-xs font-black uppercase tracking-[0.3em] text-sr-slate">What can we help you with?</label>
+                <textarea name="message" rows={4} required className="w-full bg-paper/50 border-b-2 border-ink/10 p-4 focus:border-sr-rust outline-none transition-all font-serif" placeholder="Tell us what you're working on and what you need..." />
               </div>
 
               <button type="submit" className="w-full bg-ink text-white py-6 font-black uppercase tracking-[0.4em] hover:bg-sr-rust transition-all shadow-lg">
@@ -607,7 +600,7 @@ export default function App({ services, projects }: AppProps) {
               <img 
                 src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772100799/srm_new2_z643wy.png" 
                 alt="Silver Rush Media Logo" 
-                className="h-10 w-auto"
+                className="h-20 w-auto"
                 referrerPolicy="no-referrer"
               />
               <div className="text-3xl font-black tracking-tighter">SILVER RUSH MEDIA</div>
@@ -631,3 +624,4 @@ export default function App({ services, projects }: AppProps) {
     </div>
   );
 }
+
