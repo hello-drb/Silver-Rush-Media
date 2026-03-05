@@ -1,0 +1,26 @@
+---
+import App from '../components/App.tsx';
+import { getProjects, getServices } from '../services/sanity.ts';
+import { FALLBACK_PROJECTS, FALLBACK_SERVICES } from '../data/fallback.ts';
+import '../index.css';
+
+const sanityProjects = await getProjects();
+const sanityServices = await getServices();
+
+const projects = sanityProjects || FALLBACK_PROJECTS;
+const services = sanityServices || FALLBACK_SERVICES;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Brand strategy, creative direction, and digital presence. We bring together strategy, design, photography, and digital presence into one cohesive brand." />
+    <meta name="generator" content={Astro.generator} />
+    <title>Silver Rush Media — Brand Strategy & Creative Direction</title>
+  </head>
+  <body>
+    <App client:load projects={projects} services={services} />
+  </body>
+</html>
