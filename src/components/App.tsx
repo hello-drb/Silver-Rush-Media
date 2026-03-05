@@ -122,14 +122,16 @@ export default function App({ services, projects }: AppProps) {
             href="#hero"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3"
             id="nav-logo"
           >
             <img 
               src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772089691/sr_clear_fin0va.png" 
               alt="Silver Rush Media" 
-              className={`transition-all duration-300 ${scrolled ? "h-8" : "h-12"}`}
+              className={`transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`}
               referrerPolicy="no-referrer"
             />
+            <span className={`font-display font-black tracking-tighter transition-all duration-300 text-ink ${scrolled ? "text-lg" : "text-xl"}`}>SILVER RUSH MEDIA</span>
           </motion.a>
           
           <div className="hidden md:flex gap-10 text-xs font-bold tracking-[0.2em] uppercase transition-colors text-ink">
@@ -596,27 +598,19 @@ export default function App({ services, projects }: AppProps) {
       <footer className="py-24 px-6 md:px-20 border-t border-ink/5 bg-paper">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
           <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <img 
-                src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772100799/srm_new2_z643wy.png" 
-                alt="Silver Rush Media Logo" 
-                className="h-20 w-auto"
-                referrerPolicy="no-referrer"
-              />
-              <div className="text-3xl font-black tracking-tighter">SILVER RUSH MEDIA</div>
-            </div>
+            <img 
+              src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772100799/srm_new2_z643wy.png" 
+              alt="Silver Rush Media Logo" 
+              className="h-24 w-auto"
+              referrerPolicy="no-referrer"
+            />
             <p className="text-sr-slate font-bold uppercase tracking-[0.2em] text-xs">Clarity first. Then everything else.</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-12 text-[10px] font-black uppercase tracking-[0.5em] text-sr-slate">
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-sr-rust transition-colors flex items-center gap-2">
-                <Instagram size={14} /> Instagram
-              </a>
-              <a href="#" className="hover:text-sr-rust transition-colors flex items-center gap-2">
-                <Linkedin size={14} /> LinkedIn
-              </a>
-            </div>
+            <a href="https://www.linkedin.com/in/andrewbordeaux/" target="_blank" rel="noopener noreferrer" className="hover:text-sr-rust transition-colors flex items-center gap-2">
+              <Linkedin size={14} /> LinkedIn
+            </a>
             <div>© 2026 SILVER RUSH MEDIA. ALL RIGHTS RESERVED.</div>
           </div>
         </div>
@@ -624,4 +618,3 @@ export default function App({ services, projects }: AppProps) {
     </div>
   );
 }
-
