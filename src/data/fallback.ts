@@ -50,7 +50,6 @@ export const FALLBACK_SERVICES = [
 ];
 
 export const FALLBACK_PROJECTS = [
-,
   {
     title: "Lauretta's British Ginger Tea",
     description: "A bold tea brand with real roots and a founder ready to go to market. From e-commerce and product research to branding photography and story development, we helped Lauretta shape her vision into a brand with presence — and bring it to life.",
