@@ -50,12 +50,7 @@ export const FALLBACK_SERVICES = [
 ];
 
 export const FALLBACK_PROJECTS = [
-  {
-    title: "Pamela Hervey Wellness",
-    description: "A wellness coach building her practice from the ground up — and she needed more than a photographer. We scaled up a creative team, bringing in brand strategists and designers, and worked together to develop her visual identity, build the website, produce social content, an ebook, and a webinar, and launch her into the market with a cohesive brand across every touchpoint. The key photograph from our shoot became the defining visual element of her entire brand.",
-    image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772570220/pamela_hervey_wellness_umol8a.png",
-    id: "project-pamela"
-  },
+,
   {
     title: "Lauretta's British Ginger Tea",
     description: "A bold tea brand with real roots and a founder ready to go to market. From e-commerce and product research to branding photography and story development, we helped Lauretta shape her vision into a brand with presence — and bring it to life.",
