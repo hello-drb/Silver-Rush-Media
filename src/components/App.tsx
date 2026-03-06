@@ -6,12 +6,7 @@
 import { motion } from "motion/react";
 import {
   Camera,
-  Video,
-  Palette,
   ArrowRight,
-  Instagram,
-  Mail,
-  MapPin,
   ChevronRight,
   ChevronDown,
   Menu,
@@ -27,46 +22,6 @@ import {
 import { useState, useEffect } from "react";
 
 const IconMap: Record<string, any> = { Search, Camera, Globe, Users, Sparkles, BarChart3 };
-
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
-  }, []);
-
-  return (
-    <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border border-sr-rust pointer-events-none z-[9999] hidden md:block"
-      animate={{
-        x: position.x - 16,
-        y: position.y - 16,
-        scale: isHovering ? 2.5 : 1,
-        backgroundColor: isHovering ? 'rgba(189, 34, 16, 0.15)' : 'transparent'
-      }}
-      transition={{ type: "spring", damping: 25, stiffness: 300, mass: 0.5 }}
-    />
-  );
-};
 
 interface AppProps {
   services: any[];
@@ -122,7 +77,6 @@ export default function App({ services, projects }: AppProps) {
   return (
     <div className="min-h-screen nyc-grid selection:bg-sr-rust selection:text-white">
       <div className="grain-overlay" />
-      <CustomCursor />
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 ${
@@ -148,8 +102,8 @@ export default function App({ services, projects }: AppProps) {
           <div className={`hidden md:flex gap-10 text-xs font-bold tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-ink" : "text-white"}`}>
             {[
               { name: "What We Do", id: "services" },
-              { name: "Our Work", id: "work" },
-              { name: "About", id: "about" }
+              { name: "About", id: "about" },
+              { name: "Our Work", id: "work" }
             ].map((item) => (
               <motion.a
                 key={item.id}
@@ -191,8 +145,8 @@ export default function App({ services, projects }: AppProps) {
         >
           {[
             { name: "What We Do", id: "services" },
-            { name: "Our Work", id: "work" },
             { name: "About", id: "about" },
+            { name: "Our Work", id: "work" },
             { name: "Let's Talk", id: "contact" }
           ].map((item) => (
             <a
@@ -208,25 +162,25 @@ export default function App({ services, projects }: AppProps) {
       )}
 
       {/* Hero Section — Dark */}
-      <section className="relative h-screen flex items-center px-6 md:px-20 overflow-hidden bg-ink" id="hero">
+      <section className="relative min-h-screen flex items-center pt-28 md:pt-32 px-6 md:px-20 overflow-hidden bg-ink" id="hero">
         <div className="max-w-6xl z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex flex-wrap gap-4 mb-8">
-              <span className="ransom-text text-4xl md:text-8xl">Step</span>
-              <span className="ransom-text text-4xl md:text-8xl">Into</span>
-              <span className="ransom-text text-4xl md:text-8xl">The</span>
-              <span className="ransom-text text-4xl md:text-8xl">Brand</span>
-              <span className="ransom-text text-4xl md:text-8xl">You've</span>
-              <span className="ransom-text text-4xl md:text-8xl">Been</span>
-              <span className="ransom-text text-4xl md:text-8xl">Becoming.</span>
+            <div className="flex flex-wrap gap-2 md:gap-3 mb-8 mt-8 md:mt-0" style={{ fontSize: "clamp(1.5rem, 4.5vw, 5.5rem)", lineHeight: 1.1 }}>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>Step</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>Into</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>The</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>Brand</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>You've</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>Been</span>
+              <span className="ransom-text" style={{ fontSize: "1em" }}>Becoming.</span>
             </div>
 
             <p className="text-lg md:text-2xl max-w-3xl text-white/80 font-serif italic leading-relaxed mb-12" id="hero-subtitle">
-              We bring together strategy, design, photography, and digital presence into one cohesive brand — so the world sees you as clearly as your clients already do.
+              We bring together strategy, design, photography, and digital presence into one cohesive brand — so the world sees you as clearly as you see yourself.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
@@ -259,13 +213,12 @@ export default function App({ services, projects }: AppProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-6xl font-black mb-12 uppercase tracking-tighter" id="setup-title">
-              You've done the hard part. <br />
-              <span className="text-sr-rust italic">You built something real.</span>
+              You've done the hard part.
             </h2>
-            <div className="space-y-8 text-xl md:text-2xl text-ink/80 font-serif italic leading-relaxed" id="setup-body">
-              <p>You've put in the work — the expertise, the clients, the reputation. People trust you. They refer you. You're in the arena and you're doing the thing.</p>
-              <p>Now it's time for the world to see it clearly.</p>
-              <p>Whether you're launching something new, leveling up something established, or stepping into a chapter that needs a whole new look — there's a moment when your brand needs to catch up to who you've become. That's the moment we love walking into.</p>
+            <div className="space-y-8 text-xl md:text-2xl text-ink/80 leading-relaxed" id="setup-body">
+              <p className="font-serif italic">You've put in the work — the expertise, the clients, the reputation. People trust you. They refer you. You're in the arena and you're doing the thing.</p>
+              <p className="font-serif italic">Now it's time for the world to see it clearly.</p>
+              <p className="font-light">Whether you're launching something new, leveling up something established, or stepping into a chapter that needs a whole new look — there's a moment when your brand needs to catch up to who you've become. That's the moment we love walking into.</p>
             </div>
             <div className="mt-16 p-8 bg-sr-teal/5 border-l-4 border-sr-teal">
               <p className="text-lg font-bold text-sr-slate uppercase tracking-tight" id="setup-highlight">
@@ -277,18 +230,18 @@ export default function App({ services, projects }: AppProps) {
       </section>
 
       {/* Section 3: What We Do */}
-      <section className="py-32 px-6 md:px-20" id="services">
+      <section className="py-32 px-6 md:px-20 bg-sr-slate text-white" id="services">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 border-b border-ink/10 pb-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 border-b border-white/15 pb-12">
             <div className="max-w-2xl">
               <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter" id="services-title">
                 Here's how we help.
               </h2>
-              <p className="text-xl text-ink/80 font-serif italic" id="services-desc">
+              <p className="text-xl text-white/80 font-light leading-relaxed" id="services-desc">
                 Some clients come to us for photography and discover they need positioning first. Others start with a website and end up rethinking their entire visual identity. Every engagement looks different — but the work is always specific and always built around what you actually need. What ties it all together is making sure your brand feels like you everywhere it shows up — your website, your social presence, your photography, your pitch deck, all of it.
               </p>
             </div>
-            <div className="text-xs font-bold uppercase tracking-[0.3em] text-sr-slate" id="services-label">
+            <div className="text-xs font-bold uppercase tracking-[0.3em] text-white/50" id="services-label">
               01 / Capabilities
             </div>
           </div>
@@ -305,29 +258,31 @@ export default function App({ services, projects }: AppProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="relative p-12 bg-white border border-ink/5 hover:border-sr-rust/30 transition-all group"
+                className="relative p-12 bg-white/10 border border-white/10 hover:border-sr-sage/40 transition-all group"
                 id={service.id}
               >
                 <div className={`w-16 h-16 ${service.color} text-white flex items-center justify-center mb-10 group-hover:scale-110 transition-transform`}>
                   <IconComponent size={32} />
                 </div>
-                <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter">{service.title}</h3>
-                <p className="text-sr-rust font-bold mb-6 italic">{service.subtitle}</p>
+                <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter text-white">{service.title}</h3>
+                <p className="text-sr-sage font-bold mb-6 italic">{service.subtitle}</p>
 
                 {isExpanded && (
                   <>
-                    <p className="text-ink/80 leading-relaxed mb-8 font-serif">{service.description}</p>
-                    <div className="pt-6 border-t border-ink/5">
-                      <p className="text-xs font-bold text-sr-slate/80 italic leading-relaxed">
-                        {service.details}
-                      </p>
-                    </div>
+                    <p className="text-white/80 leading-relaxed mb-8 font-serif">{service.description}</p>
+                    {service.details && (
+                      <div className="pt-6 border-t border-white/10">
+                        <p className="text-xs font-bold text-white/50 italic leading-relaxed">
+                          {service.details}
+                        </p>
+                      </div>
+                    )}
                   </>
                 )}
 
                 <button
                   onClick={() => toggleService(service.id)}
-                  className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-sr-rust hover:text-ink transition-colors flex items-center gap-1"
+                  className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-sr-sage hover:text-white transition-colors flex items-center gap-1"
                 >
                   {isExpanded ? "Show Less" : "Show More"}
                   <ChevronDown size={14} className={`transition-transform ${isExpanded ? "rotate-180" : ""}`} />
@@ -361,11 +316,13 @@ export default function App({ services, projects }: AppProps) {
                       {isExpanded && (
                         <>
                           <p className="text-white/80 leading-relaxed mb-8 font-serif text-lg">{service.description}</p>
-                          <div className="pt-6 border-t border-white/10">
-                            <p className="text-sm font-bold text-white/60 italic leading-relaxed">
-                              {service.details}
-                            </p>
-                          </div>
+                          {service.details && (
+                            <div className="pt-6 border-t border-white/10">
+                              <p className="text-sm font-bold text-white/60 italic leading-relaxed">
+                                {service.details}
+                              </p>
+                            </div>
+                          )}
                         </>
                       )}
 
@@ -385,7 +342,49 @@ export default function App({ services, projects }: AppProps) {
         </div>
       </section>
 
-      {/* Section 4: The Difference */}
+      {/* Section 4: About/Bio — moved up after services */}
+      <section className="py-32 px-6 md:px-20 overflow-hidden relative" id="about">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-24">
+          <div className="w-full md:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-[3/4] overflow-hidden border-[12px] border-ink/5 hover:border-sr-rust/20 transition-all duration-700">
+                <img
+                  src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570367/IMG_7292_awutou.jpg"
+                  alt="Drew Bordeaux"
+                  className="object-cover w-full h-full"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <p className="mt-3 text-xs text-ink/40 italic">Photo by <a href="https://fieldnotesfromthework.substack.com/p/exactly-who-you-hope-they-are" target="_blank" rel="noopener noreferrer" className="underline hover:text-sr-rust transition-colors">Lindsey Lerner</a></p>
+            </motion.div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-5xl md:text-8xl font-black mb-12 uppercase tracking-tighter" id="about-title">Hi, I'm Drew.</h2>
+            <div className="space-y-8 text-lg md:text-xl text-ink/80 leading-relaxed font-light" id="about-body">
+              <p className="font-serif italic text-2xl text-ink">I'm Drew Bordeaux, and I run Silver Rush Media.</p>
+              <p>I'm a creative director and brand strategist who helps people build brands that actually reflect the level they're operating at. I come from both sides — I spent nine years as COO of a digital publishing company where I oversaw two divisions, helped launch a data analytics practice that worked with over 100 companies, and traveled the country helping business leaders make smarter decisions with their data. That work shaped how I think about everything we do here.</p>
+              <p>Since 2017 I've been running Silver Rush Media and building brands for businesses, founders, and creative professionals. I also direct visuals and creative for musicians through my practice at <a href="https://drewimages.studio" target="_blank" rel="noopener noreferrer" className="text-sr-rust hover:underline">DrewImages.Studio</a>, where I've worked with Grammy-winning artists, bestselling authors, and cultural institutions. How people perceive brands — why they trust one over another, what makes something feel authentic — that's always been the thread. Studying social psychology at Harvard gave me the framework, and working as a Recording Academy member keeps me close to the culture. Both show up in the work.</p>
+              <p>I work with a small, trusted team who care about the details as much as I do. When you work with us, you get a real person invested in your outcome, not an agency assembly line.</p>
+            </div>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-16 inline-block bg-ink text-white px-12 py-6 rounded-none text-sm font-bold uppercase tracking-[0.2em] hover:bg-sr-rust transition-all shadow-xl"
+              id="about-cta"
+            >
+              Work With Me →
+            </motion.a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: The Difference */}
       <section className="py-32 px-6 md:px-20 bg-ink text-white" id="difference">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -406,47 +405,37 @@ export default function App({ services, projects }: AppProps) {
         </div>
       </section>
 
-      {/* Section 5: Pam Hervey — Full Story + Testimonial */}
-      <section className="py-32 px-6 md:px-20 bg-paper" id="pam-hervey">
+      {/* Section 6: Pam Hervey Testimonial — side-by-side */}
+      <section className="py-16 md:py-24 px-6 md:px-20 bg-ink/5" id="pam-hervey">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative p-12 md:p-16 bg-white border border-ink/5 shadow-2xl"
+            className="flex flex-col md:flex-row items-center gap-10 md:gap-16"
           >
-            <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-              <div className="w-full md:w-2/5 shrink-0">
-                <div className="aspect-[4/5] overflow-hidden border-[12px] border-ink/5 shadow-lg">
-                  <img
-                    src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570220/pamela_hervey_wellness_umol8a.png"
-                    alt="Pamela Hervey Wellness"
-                    className="object-cover w-full h-full"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              </div>
-              <div className="w-full md:w-3/5">
-                <div className="text-xs font-bold uppercase tracking-[0.3em] text-sr-rust mb-4">Client Story</div>
-                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6">Pamela Hervey Wellness</h3>
-                <p className="text-ink/80 leading-relaxed font-serif text-lg mb-10">
-                  A wellness coach building her practice from the ground up — and she needed more than a photographer. We scaled up a creative team, bringing in a brand strategist and designer, and worked together to develop her visual identity, build the website, produce social content, an ebook, and a webinar, and launch her into the market with a cohesive brand across every touchpoint.
-                </p>
-                <div className="pt-8 border-t border-ink/10">
-                  <MessageSquare size={32} className="text-sr-rust/30 mb-4" />
-                  <blockquote className="text-xl md:text-2xl font-serif italic leading-snug text-ink mb-6">
-                    "Drew didn't just build a website for me — he helped shape the visual identity and voice of my brand from the ground up. What I appreciated most was his unique balance of support and creative challenge. He consistently encouraged me to stretch beyond my comfort zone and share my voice and expertise more boldly than I might have on my own. Through that process, he helped me discover new ways of communicating my message and connecting with the women I serve."
-                  </blockquote>
-                  <p className="text-lg font-black uppercase tracking-tighter text-sr-rust">— Pam Hervey</p>
-                  <p className="text-sr-slate font-bold uppercase tracking-widest text-xs mt-1">Founder & Health Coach, Pamela Hervey Wellness</p>
-                </div>
-              </div>
+            <div className="w-full md:w-1/2 flex-shrink-0 overflow-hidden">
+              <img
+                src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570220/pamela_hervey_wellness_umol8a.png"
+                alt="Pamela Hervey Wellness"
+                className="w-full h-auto"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="text-xs font-bold uppercase tracking-[0.3em] text-sr-rust mb-5">Testimonial</div>
+              <MessageSquare size={20} className="text-sr-rust/30 mb-4" />
+              <blockquote className="text-base md:text-lg font-serif italic leading-relaxed text-ink/90 mb-6">
+                "Drew didn't just build a website for me — he helped shape the visual identity and voice of my brand from the ground up. What I appreciated most was his unique balance of support and creative challenge. He consistently encouraged me to stretch beyond my comfort zone and share my voice and expertise more boldly than I might have on my own. Through that process, he helped me discover new ways of communicating my message and connecting with the women I serve."
+              </blockquote>
+              <p className="font-black uppercase tracking-tighter text-sr-rust">— Pam Hervey</p>
+              <p className="text-sr-slate font-bold uppercase tracking-widest text-xs mt-1">Founder & Health Coach, Pamela Hervey Wellness</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Section 6: Work We've Done */}
+      {/* Section 7: Work We've Done */}
       <section className="py-32 px-6 md:px-20" id="work">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-24">
@@ -471,7 +460,7 @@ export default function App({ services, projects }: AppProps) {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-1000"
+                    className="object-cover object-top w-full h-full group-hover:scale-105 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-ink/10 group-hover:bg-ink/30 transition-colors" />
@@ -486,7 +475,7 @@ export default function App({ services, projects }: AppProps) {
         </div>
       </section>
 
-      {/* Section 7: How We Work */}
+      {/* Section 8: How We Work */}
       <section className="py-32 px-6 md:px-20 bg-sr-slate text-white" id="how-we-work">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -518,53 +507,12 @@ export default function App({ services, projects }: AppProps) {
         </div>
       </section>
 
-      {/* Section 8: About */}
-      <section className="py-32 px-6 md:px-20 overflow-hidden relative" id="about">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-24">
-          <div className="w-full md:w-1/2">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-[3/4] overflow-hidden border-[12px] border-ink/5 hover:border-sr-rust/20 transition-all duration-700">
-                <img
-                  src="https://res.cloudinary.com/diduw1fmf/image/upload/v1772570367/IMG_7292_awutou.jpg"
-                  alt="Drew Bordeaux"
-                  className="object-cover w-full h-full"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            </motion.div>
-          </div>
-          <div className="w-full md:w-1/2">
-            <h2 className="text-5xl md:text-8xl font-black mb-12 uppercase tracking-tighter" id="about-title">Hi, I'm Drew.</h2>
-            <div className="space-y-8 text-lg md:text-xl text-ink/80 leading-relaxed font-light" id="about-body">
-              <p className="font-serif italic text-2xl text-ink">I'm Drew Bordeaux, and I run Silver Rush Media.</p>
-              <p>I'm a creative director and brand strategist who helps people build brands that actually reflect the level they're operating at. I come from both sides — I spent nine years as COO of a digital publishing company where I oversaw two divisions, helped launch a data analytics practice that worked with over 100 companies, and traveled the country helping business leaders make smarter decisions with their data. That work shaped how I think about everything we do here.</p>
-              <p>Since 2017 I've been running Silver Rush Media and building brands for businesses, founders, and creative professionals. I also direct visuals and creative for musicians through my practice at <a href="https://drewimages.studio" target="_blank" rel="noopener noreferrer" className="text-sr-rust hover:underline">DrewImages.Studio</a>, where I've worked with Grammy-winning artists, bestselling authors, and cultural institutions. I studied social psychology at Harvard. I'm a Recording Academy member. Both show up in how I think about brands more than you might expect.</p>
-              <p>I work with a small, trusted team who care about the details as much as I do. When you work with us, you get a real person invested in your outcome, not an agency assembly line.</p>
-            </div>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-16 inline-block bg-ink text-white px-12 py-6 rounded-none text-sm font-bold uppercase tracking-[0.2em] hover:bg-sr-rust transition-all shadow-xl"
-              id="about-cta"
-            >
-              Work With Me →
-            </motion.a>
-          </div>
-        </div>
-      </section>
-
       {/* Section 9: Contact */}
       <section className="py-32 px-6 md:px-20 bg-white/30" id="contact">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block mb-12">
-            <span className="ransom-text text-5xl md:text-9xl">Let's</span>
-            <span className="ransom-text text-5xl md:text-9xl">Talk</span>
+          <div className="inline-flex flex-wrap gap-2 md:gap-4 mb-12" style={{ fontSize: "clamp(2.5rem, 7vw, 8rem)" }}>
+            <span className="ransom-text" style={{ fontSize: "1em" }}>Let's</span>
+            <span className="ransom-text" style={{ fontSize: "1em" }}>Talk</span>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter" id="contact-title">Let's start with a conversation.</h2>
