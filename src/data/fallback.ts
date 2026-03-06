@@ -23,7 +23,7 @@ export const FALLBACK_SERVICES = [
     title: "Brand Strategy & Positioning",
     subtitle: "Find the throughline.",
     description: "We figure out what you're actually saying — and to whom. Through conversation and strategic thinking, we uncover your positioning, clarify your message, and build the foundation everything else sits on.",
-    details: "This might look like: positioning workshops, messaging development, audience strategy, competitive analysis, launch planning",
+    details: "This usually starts with a deep-dive conversation and includes things like figuring out where you sit in your market, sharpening your message, understanding your audience, and building the strategic foundation your brand lives on.",
     iconName: "Search",
     id: "service-strategy",
     color: "bg-sr-teal"
@@ -31,8 +31,8 @@ export const FALLBACK_SERVICES = [
   {
     title: "Brand & Marketing Support",
     subtitle: "The work between the launches.",
-    description: "Many brands need more than a one-time build — they need someone to keep the engine running. We help you plan and create the marketing assets that keep your brand visible and your audience engaged: social content and calendars, branded graphics and templates, email campaigns, webinar and event support, ebooks and lead magnets repurposed from your existing content, video consulting, and ongoing website updates. It's not a full outsourced marketing team — it's a focused, flexible partnership where we handle the digital marketing work you don't have time for, built around what you actually need month to month.",
-    details: "This might look like: social content creation and calendars, branded graphics and templates, webinar and launch support, ebook and lead magnet development, email marketing, video content consulting, website maintenance and updates",
+    description: "Many brands need more than a one-time build — they need someone to keep the engine running. We help you plan and create the marketing assets that keep your brand visible and your audience engaged: social content, branded graphics and templates, email campaigns, event and launch support, and ongoing website updates. It's not a full outsourced marketing team — it's a focused, flexible partnership where we handle the digital marketing work you don't have time for, built around what you actually need.",
+    details: "This might look like: social content creation, branded graphics and templates, launch support, email marketing, video content consulting, website maintenance and updates",
     iconName: "BarChart3",
     id: "service-marketing",
     color: "bg-sr-slate"
@@ -40,7 +40,7 @@ export const FALLBACK_SERVICES = [
   {
     title: "AI Integration & Workflows",
     subtitle: "Modern tools, applied thoughtfully.",
-    description: "AI isn't just chatbots — there's a full landscape of tools for image, video, audio, content, and automation that's evolving fast and getting more powerful by the month. Most businesses we work with know AI is relevant but aren't sure where it actually fits into what they do. That's where we come in. We help you identify the right tools for your specific business, build them into your existing workflows, and make sure you're actually getting value from them — not just experimenting.",
+    description: "AI isn't just chatbots — there's a full landscape of tools for image, video, audio, content, and automation that's evolving fast and getting more powerful by the day. Most businesses we work with know AI is relevant but aren't sure where it actually fits into what they do. That's where we come in. We help you identify the right tools for your specific business, build them into your existing workflows, and make sure you're actually getting value from them — not just experimenting.",
     details: "This might look like: AI-enhanced content and image creation, video tools, workflow automation, identifying the right platforms for your business, training your team on practical AI applications",
     iconName: "Sparkles",
     id: "service-ai",
@@ -57,22 +57,10 @@ export const FALLBACK_PROJECTS = [
     id: "project-lauretta"
   },
   {
-    title: "Spice Hospitality Group",
-    description: "A startup hospitality team preparing for capital raising who needed to look as strong as their ambition. We created team photography, refined their brand voice, and built a digital presence that communicated clarity and competitiveness to the investors and partners they were pursuing.",
-    image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772570179/SHG_Group_Couch_V3_1_o1y28c.jpg",
-    id: "project-spice"
-  },
-  {
     title: "Isa Tailored & Made",
     description: "Isa Kriegeskotte is a couture tailor whose résumé includes Givenchy, Zuhair Murad, and the New York City Ballet Costume Shop. When she launched a new collection from her Westchester atelier, we directed and shot the product photography, creating a versatile visual library designed to work across her website, lookbooks, social, and advertising.",
     image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772745585/isa_stiches_pmrhas.png",
     id: "project-isa"
-  },
-  {
-    title: "Demeter's Tavern and Sports Bar",
-    description: "A neighborhood institution with a digital problem. We analyzed their web traffic to figure out what visitors were actually looking for, optimized the site for on-premises use and menu access, built out trust markers based on real data, and shot fresh photography that captured the energy of the place. Sometimes the best brand work is solving the problem nobody else thought to look at.",
-    image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772570224/demeters_tavern_evyiwo.png",
-    id: "project-demeter"
   },
   {
     title: "Talea Ensemble",
@@ -85,5 +73,17 @@ export const FALLBACK_PROJECTS = [
     description: "A style-forward consignment shop with soul. When doors temporarily closed in 2020, we helped them launch an e-commerce initiative to keep the business alive and customers connected. We also shot a brand video introducing the founder to her audience and developed lookbooks — making sure everything felt as good as their racks look.",
     image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772570288/trilogy_lookbook_lp9tob.jpg",
     id: "project-trilogy"
+  },
+  {
+    title: "Demeter's Tavern and Sports Bar",
+    description: "A neighborhood institution with a digital problem. We analyzed their web traffic to figure out what visitors were actually looking for, optimized the site for on-premises use and menu access, built out trust markers based on real data, and shot fresh photography that captured the energy of the place. Sometimes the best brand work is solving the problem nobody else thought to look at.",
+    image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772759580/demeters_front_zwezxj.png",
+    id: "project-demeter"
+  },
+  {
+    title: "Spice Hospitality Group",
+    description: "A startup hospitality team preparing for capital raising who needed to look as strong as their ambition. We created team photography, refined their brand voice, and built a digital presence that communicated clarity and competitiveness to the investors and partners they were pursuing.",
+    image: "https://res.cloudinary.com/diduw1fmf/image/upload/v1772570179/SHG_Group_Couch_V3_1_o1y28c.jpg",
+    id: "project-spice"
   }
 ];
